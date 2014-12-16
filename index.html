@@ -1,0 +1,37 @@
+
+  <!DOCTYPE html>
+  <html ng-app="gitService">
+    <head>
+      <meta charset=utf-8>
+      <title>Git Hub Repo</title>
+     <link href='http://fonts.googleapis.com/css?family=Josefin+Slab:300italic' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" type="text/css" href="stylesheet/main.css">
+    </head>
+    <body ng-controller="gitServiceController">
+      <header><img ng-src="img/ngLog.png" alt="AngularJS logo"></header>
+      <section>
+        <div id="headingText">
+          <p>Looking For GitHub Users?</p>
+        </div>
+        <div id="searchBar">
+          <form>
+            <input type="search" name="search" id="search" placeholder="Enter a Name..." ng-model="search" required>
+            <input type="submit" value"Search" id="submit" ng-click="dataFetch()">
+          </form>
+        </div>
+        <div ng-show="confirm" class="error">User Not Found!!!</div>
+        <div class="listings">
+          <ul ng-repeat="item in results" id="options">
+            <li>
+              <img ng-src="{{ item.avatar_url }}" width="300" height="auto" />
+                <p> LOGIN: {{ item.login }} </p>
+                <p> SCORES: {{ item.score }} </p>
+                <p> PROFILE: <a ng-href="{{item.html_url}}">Click Here</a></p>           
+            </li>
+          </ul>
+        </div>  
+      </section>
+      <script src="script/angular.js"></script>
+      <script type="text/javascript" src="script/factoryApp.js"></script> 
+    </body>
+  </html>
